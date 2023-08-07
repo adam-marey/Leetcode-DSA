@@ -1,0 +1,59 @@
+# Two Sum
+
+
+Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+
+## Examples
+```js
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+
+```
+**Try it First here [LeetCode](https://leetcode.com/problems/two-sum/)**
+
+## Solution 
+
+<details>
+  <summary>Click to view solution</summary>
+  One of the most efficient ways to solve this problem is to use a hash map (in JavaScript, an object can serve this purpose). The idea is to iterate over the array and store the elements into a hash map with their respective indices. During this iteration, we can also check if the complement of the current number (i.e., target - num[i]) exists in the hash map. If it does, we can return the indices of both numbers. If not, we continue with the next iteration.
+
+```js
+// The function twoSum takes an array of numbers (nums) and a target number (target)
+function twoSum(nums, target) {
+    // We create a new JavaScript object (map) to store numbers from the array with their respective indices
+    let map = {};
+
+    // We start a for loop to iterate over the array of numbers (nums)
+    for (let i = 0; i < nums.length; i++) {
+        // For each number, we calculate its complement (target - current number)
+        let complement = target - nums[i];
+
+        // We then check if the complement exists in the map object
+        if (map[complement] !== undefined) {
+            // If the complement exists in map, it means we found two numbers that add up to target
+            // We then return an array containing the index of the complement and the current index
+            return [map[complement], i];
+        }
+
+        // If the complement does not exist in map, it means we haven't found two numbers that add up to target yet
+        // We then add the current number to map with its index as the value
+        map[nums[i]] = i;
+    }
+
+    // If the for loop completes without returning, it means we didn't find two numbers that add up to target
+    // We then return null to indicate that there's no solution
+    return null;
+}
+
+```
+The time complexity of this solution is `O(n)`, where n is the length of `nums`. This is because we do a single pass over `nums`, and for each number, we insert it into `map` and look up its complement in `map`, both of which are `O(1`) operations. The space complexity is also `O(n)`, since in the worst case, we will insert every number from `nums` into `map`.
+</details>

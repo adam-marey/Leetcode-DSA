@@ -1,15 +1,18 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
     "type": "page"
   },
+  "Buy Me a Coffee": {
+    "title": "Buy me ☕️",
+    "type": "page",
+    "href": "https://www.buymeacoffee.com/PHyHxmmjRj"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://www.linkedin.com/in/adam-marey/",
     "newWindow": true
   }
 }
